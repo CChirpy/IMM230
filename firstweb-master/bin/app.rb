@@ -17,5 +17,10 @@ end
 post '/hello/' do
     greeting = params[:greeting] || "Hi There"
     name = params[:name] || "Nobody"
+    
+    # 09-24-2020 - modify user input
+    greeting = greeting.reverse
+    name = name.reverse
+    
     erb :index, :locals => {'greeting' => greeting, 'name' => name}
 end
