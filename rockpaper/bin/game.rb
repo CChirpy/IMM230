@@ -5,12 +5,8 @@ set :static, true
 set :public_folder, "static"
 set :views, "views"
 
-# before we process a route, we'll set the response as
-# a plain text and set up an array of viable moves that
-# a player (and the computer) can perform
-
 before do
-  content_type :txt
+  # content_type :txt
   @defeat = {rock: :scissors, paper: :rock, scissors: :paper}
   @throws = @defeat.keys
 end
@@ -24,24 +20,22 @@ get '/throw/' do
 end
 
 post '/throw/' do
-    player_throw = params[:player_throw]
-    erb :index, :locals => {'player_throw' => player_throw}
-end
-
-get '/throw/:type' do
-  player_throw = params[:type].to_sym
-
+  player_throw = params[:player_throw].to_sym
+  outcome = ""
+  
   unless @throws.include?(player_throw)
-    halt 403, "You must throw one of: #{@throws}"
+    halt 403, outcome = "You must throw one of: #{@throws}"
   end
-
+  
   computer_throw = @throws.sample
 
   if player_throw == computer_throw
-    "You tied with the computer. Try again!"
+    outcome = "You tied with the computer. Try again!"
   elsif computer_throw == @defeat[player_throw]
-    "Nicely done; #{player_throw} beats #{computer_throw}!"
+    outcome ="Nicely done; #{player_throw} beats #{computer_throw}!"
   else
-    "Ouch; #{computer_throw} beats #{player_throw}. Better luck next time!"
+    outcome = "Ouch; #{computer_throw} beats #{player_throw}. Better luck next time!"
   end
+  
+  erb :index, :locals => {'player_throw' => player_throw, 'outcome' => outcome}
 end
