@@ -1,5 +1,6 @@
 require 'sinatra'
 
+set :port, 8080
 set :static, true
 set :public_folder, "static"
 set :views, "views"
@@ -17,7 +18,7 @@ before do
   session[:losses] ||= 0
 end
 
-get '/' do 
+get '/' do
     erb :move
 end
 
@@ -27,14 +28,14 @@ post '/throw/' do
   if !@throws.include?(player_throw)
     halt 403, "You must throw one of the following: #{@throws}"
   end
-  
+
   computer_throw = @throws.sample
 
   if player_throw == computer_throw then
     session[:ties] = session[:ties] + 1
     @ties = @ties + 1
     @result = "You tied with the computer. Try again!"
-    erb :index 
+    erb :index
   elsif computer_throw == @defeat[player_throw]
     session[:wins] = session[:wins] + 1
     @wins = @wins + 1
