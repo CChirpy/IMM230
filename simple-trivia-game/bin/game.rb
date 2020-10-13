@@ -1,5 +1,6 @@
+require 'rubygems'
 require 'sinatra'
-require 'questions'
+require_relative 'questions'
 
 set :port, 8080
 set :static, true
@@ -17,12 +18,12 @@ get "/" do
   session["question"] = 1
   session["score"] = 0
 
-  erb :home
+  erb :index
 end
 
 get "/question" do
-  # After answering 3 questions it goes to score
-  if session["question"].to_i > 3
+  # After answering 10 questions it goes to score
+  if session["question"].to_i > 10
     redirect '/score'
   end
 

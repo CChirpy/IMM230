@@ -6,7 +6,7 @@ score = 0
 question = 1
 
 # Check how many questions the user has answered
-while question < 4
+while question < 11
   # Equations are picked at random
   i = rand(QUESTIONS.length)
 
@@ -29,4 +29,4 @@ while question < 4
 end
 
 # Tells you the amount of question you answered correctly out of 10
-puts "You answered #{score} of 3 questions correctly"
+puts "You answered #{score} of 10 questions correctly"
