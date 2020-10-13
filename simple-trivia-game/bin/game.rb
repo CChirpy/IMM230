@@ -58,6 +58,6 @@ end
 
 # Get final score
 get "/score" do
-  @score = session["score"].to_s
+  @score = session["score"].to_i * 10
   erb :score
 end
