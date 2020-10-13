@@ -38,5 +38,5 @@ QUESTIONS = [
     ["How many cups are in 2 pints?","4 cups"],
     ["How many seconds are in 2 minutes?","120"],
     ["How many days are in 2 weeks and 2 days?","16"],
-    ["What is 5/8 in deciml form?",".625"]
+    ["What is 5/8 in decimal form?",".625"]
 ]
