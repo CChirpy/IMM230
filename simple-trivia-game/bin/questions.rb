@@ -34,9 +34,9 @@ QUESTIONS = [
     ["What is 9*10?","90"],
     ["What is 6*11?","66"],
     ["What is 11*12?","132"],
-    ["How many quarts are in 4 gallons?","16 quarts"],
+    ["How many quarts are in 4 gallons?","16"],
     ["How many cups are in 2 pints?","4 cups"],
-    ["How many seconds are in 2 minutes?","120 seconds"],
-    ["How many days are in 2 weeks and 2 days?","16 days"],
+    ["How many seconds are in 2 minutes?","120"],
+    ["How many days are in 2 weeks and 2 days?","16"],
     ["What is 5/8 in deciml form?",".625"]
 ]
