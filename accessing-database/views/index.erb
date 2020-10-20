@@ -1,45 +1,23 @@
 <html>
 
-  <h3>Simple Car Database</h3>
+  <h3>Simple Database</h3>
 
   <table>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Price</th>
+      <th>id</th>
+      <th>input</th>
     </tr>
-    <% @cars.each do |row| %>
+    <% @items.each do |row| %>
       <tr>
-        <td><%= row['ID'] %></td>
-        <td><%= row['NAME'] %></td>
-        <td><%= row['PRICE']%></td>
+        <td><%= row['id'] %></td>
+        <td><%= row['input'] %></td>
       </tr>
     <% end %>
   </table>
 
-  <table>
-    <% @cars.each do |row| %>
-      <tr>
-        <td>
-          <%= row['Name'] %>
-        </td>
+  <form action='/insert' method="POST">
+    <input type="text" name="input">
+    <input type="submit">
+  </form>
 
-        <td><%= row['Price'] %>
-        </td>
-
-        <td>
-          <% row  %>
-          </td>
-        <% end %>
-      </tr>
-    </table>
-
-    <p>
-
-      <form action='/insert' method="POST">
-        <input type="text" name="model">
-        <input type="text" name="price">
-        <input type="submit">
-      </form>
-
-    </html>
+</html>

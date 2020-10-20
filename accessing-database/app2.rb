@@ -1,29 +1,26 @@
 require 'sqlite3'
+require 'sinatra'
 
-# Example: http://zetcode.com/db/sqliteruby/connect/
-# Using SQLite: sqlite3 test.db | .mode column | .headers on
-# sqlite> SELECT * FROM items;
+# Examples: http://zetcode.com/db/sqliteruby/connect/
+# http://zetcode.com/db/sqliteruby/queries/
 
-begin
-  # Connects to the test.db database.
-  db = SQLite3::Database.open "test.db"
-
-  # A new 'items' table is created if it does not already exist.
-  db.execute "CREATE TABLE IF NOT EXISTS items(
+before {
+  @db = SQLite3::Database.open "test.db"
+  @db.execute "CREATE TABLE IF NOT EXISTS items(
     id INTEGER PRIMARY KEY autoincrement,
     input TEXT)"
+  @initable = @db.prepare "SELECT * FROM items"
+}
 
-  # The execute method executes the given SQL statement.
-  for i in 1..10 do
-    db.execute "INSERT INTO items(input) VALUES(#{i})"
-  end
-
-  # Checks for errors.
-  rescue SQLite3::Exception => e
-    puts "Exception occurred"
-    puts e
-
-  # Release the resources.
-  ensure
-    db.close if db
+get '/' do
+  @db.results_as_hash = true
+  @items = @initable.execute
+  erb :index
 end
+
+# post '/insert' do
+#   input = params['input']
+#   @db.execute "INSERT INTO items (id, input) VALUES('#{id}','#{input}')"
+#   @items = @db.execute "SELECT * FROM items"
+#   erb :index
+# end
