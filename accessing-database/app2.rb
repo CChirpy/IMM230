@@ -6,9 +6,8 @@ require 'sqlite3'
 before {
 @db = SQLite3::Database.open "test.db"
 @db.results_as_hash = true
-   @db.execute "CREATE TABLE IF NOT EXISTS Cars(Id INTEGER PRIMARY KEY autoincrement,
-       Name TEXT, Price INT)"
-  @cars = @db.execute "SELECT * FROM Cars LIMIT 5"
+   @db.execute "CREATE TABLE IF NOT EXISTS Cars(Id INTEGER PRIMARY KEY autoincrement, Name TEXT, Price INT)"
+   @cars = @db.execute "SELECT * FROM Cars LIMIT 5"
 }
 
 get '/' do
@@ -24,7 +23,7 @@ post '/insert' do
  @db.execute "insert into cars (name, price) VALUES('#{model}','#{price}')"
 
  @cars2 = @db.execute "SELECT * FROM Cars"
- 
+
  erb :cars
 
 end
