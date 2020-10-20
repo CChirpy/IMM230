@@ -1,8 +1,12 @@
 require 'sqlite3'
 require 'sinatra'
 
-# Examples: http://zetcode.com/db/sqliteruby/connect/
-# http://zetcode.com/db/sqliteruby/queries/
+set :port, 8080
+set :static, true
+set :public_folder, "static"
+set :views, "views"
+
+# Example: http://zetcode.com/db/sqliteruby/connect/
 
 before {
   @db = SQLite3::Database.open "test.db"
@@ -18,9 +22,9 @@ get '/' do
   erb :index
 end
 
-# post '/insert' do
-#   input = params['input']
-#   @db.execute "INSERT INTO items (id, input) VALUES('#{id}','#{input}')"
-#   @items = @db.execute "SELECT * FROM items"
-#   erb :index
-# end
+post '/insert' do
+  user_input = params['user_input']
+  @db.execute "INSERT INTO items(input) VALUES('#{user_input}')"
+  @itemsupdate = @db.execute "SELECT * FROM items"
+  erb :form
+end

@@ -1,14 +1,11 @@
 <table>
-  <tr>
-    <th>id</th>
-    <th>input</th>
-  </tr>
-  <% @items.each do |row| %>
+  <% @itemsupdate.each do |row| %>
     <tr>
       <td><%= row['id'] %></td>
       <td><%= row['input'] %></td>
+      <td><% row %></td>
+      <% end %>
     </tr>
-  <% end %>
 </table>
 
 <form action='/insert' method="POST">
