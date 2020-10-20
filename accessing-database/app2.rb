@@ -1,29 +1,29 @@
-# 2020-10-19
-
-require 'sinatra'
 require 'sqlite3'
 
-before {
-@db = SQLite3::Database.open "test.db"
-@db.results_as_hash = true
-   @db.execute "CREATE TABLE IF NOT EXISTS Cars(Id INTEGER PRIMARY KEY autoincrement, Name TEXT, Price INT)"
-   @cars = @db.execute "SELECT * FROM Cars LIMIT 5"
-}
+# Example: http://zetcode.com/db/sqliteruby/connect/
+# Using SQLite: sqlite3 test.db | .mode column | .headers on
+# sqlite> SELECT * FROM items;
 
-get '/' do
-   @db.results_as_hash=true
-   @cars = @db.execute "SELECT * FROM Cars LIMIT 5"
-   erb :index
-end
+begin
+  # Connects to the test.db database.
+  db = SQLite3::Database.open "test.db"
 
-post '/insert' do
- model = params['model']
- price = params['price'].to_i
+  # A new 'items' table is created if it does not already exist.
+  db.execute "CREATE TABLE IF NOT EXISTS items(
+    id INTEGER PRIMARY KEY autoincrement,
+    input TEXT)"
 
- @db.execute "insert into cars (name, price) VALUES('#{model}','#{price}')"
+  # The execute method executes the given SQL statement.
+  for i in 1..10 do
+    db.execute "INSERT INTO items(input) VALUES(#{i})"
+  end
 
- @cars2 = @db.execute "SELECT * FROM Cars"
+  # Checks for errors.
+  rescue SQLite3::Exception => e
+    puts "Exception occurred"
+    puts e
 
- erb :cars
-
+  # Release the resources.
+  ensure
+    db.close if db
 end
