@@ -25,7 +25,7 @@ end
 post '/insert' do
   @db.results_as_hash = true
   user_input = params['user_input']
-  @db.execute "INSERT INTO items (input) VALUES('#{user_input}')"
+  @db.execute "INSERT INTO items(input) VALUES('#{user_input}')"
   @itemsupdate = @db.execute "SELECT * FROM items"
   erb :form
 end
