@@ -1,13 +1,9 @@
-
-
 require 'simplehttp'
 require 'json'
 require 'ostruct'
 require 'awesome_print'
 require 'open-uri'
 require 'twitter'
-
-
 
 @client = Twitter::REST::Client.new do |config|
   config.consumer_key        = "YOUR_CONSUMER_KEY"
@@ -35,23 +31,18 @@ end
 #     puts tweet.text
 # end
 
-
 # @client.home_timeline.each do | tweet |
-
 #     puts tweet.text
-    
-# end 
-    
-    # puts "veesander timeline "
-    # @client.user_timeline("realdonaldtrump").each do |tweet|
-    
-    #     puts tweet.text 
-        
-    # end 
-        
-    # @client.followers("realdonaldtrump").each do |follower|
-    #         puts follower.email
-    # end 
-        
-    # #tweet
-     @client.update("Vote Green New Deal!")
+# end
+
+# puts "veesander timeline "
+# @client.user_timeline("realdonaldtrump").each do |tweet|
+#     puts tweet.text
+# end
+
+# @client.followers("realdonaldtrump").each do |follower|
+#         puts follower.email
+# end
+
+# tweet
+@client.update("test")
