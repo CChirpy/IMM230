@@ -1,5 +1,4 @@
 #!/usr/bin/ruby
-
 require 'sinatra'
 require 'simplehttp'
 require 'json'
@@ -34,7 +33,7 @@ end
 
 get '/erb' do
   # no recent proposals!
-   @client.search("to:justinbieber marry me", result_type: "recent").take(3).collect do |tweet|
+   @client.search("to:CChirpy_", result_type: "recent").take(3).collect do |tweet|
      "#{tweet.user.screen_name}: #{tweet.text}"
    end
   erb :index

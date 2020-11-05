@@ -21,13 +21,13 @@ end
 
 def @client.get_all_tweets(user)
   collect_with_max_id do |max_id|
-    options = {count: 200, include_rts: true}
+    options = {count: 50, include_rts: false}
     options[:max_id] = max_id unless max_id.nil?
     user_timeline(user, options)
   end
 end
 
-# @client.get_all_tweets("realdonaldtrump").each do |tweet|
+# @client.get_all_tweets("CChirpy_").each do |tweet|
 #     puts tweet.text
 # end
 
@@ -35,14 +35,13 @@ end
 #     puts tweet.text
 # end
 
-# puts "veesander timeline "
-# @client.user_timeline("realdonaldtrump").each do |tweet|
+# @client.user_timeline("CChirpy_").each do |tweet|
 #     puts tweet.text
 # end
 
-# @client.followers("realdonaldtrump").each do |follower|
+# @client.followers("CChirpy_").each do |follower|
 #         puts follower.email
 # end
 
 # tweet
-@client.update("test")
+# @client.update("test")
