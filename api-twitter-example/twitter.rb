@@ -32,7 +32,6 @@ haml :index
 end
 
 get '/erb' do
-  # no recent proposals!
    @client.search("to:CChirpy_", result_type: "recent").take(3).collect do |tweet|
      "#{tweet.user.screen_name}: #{tweet.text}"
    end
