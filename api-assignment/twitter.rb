@@ -5,15 +5,18 @@
     3. Add a form to get the search input from the user
     4. Add another route and ERB file to display the results
   Resources:
-    - https://www.rubyguides.com/2016/04/twitter-api-from-ruby-tutorial/
-    - https://github.com/sferik/twitter#streaming
-    - http://nizhu.github.io/ruby-intro-site/blog/2013/08/01/accessing-the-twitter-api/
+    - https://github.com/sferik/twitter
+    - https://developer.twitter.com/en/docs/labs/recent-search/guides/search-queries
+    - https://stackoverflow.com/questions/17118380/pulling-images-from-users-timeline-with-twitter-gem
 =end
 
 require 'sinatra'
 require 'json'
 require 'twitter'
 require 'open-uri'
+require 'simplehttp'
+require 'ostruct'
+require 'awesome_print'
 
 set :port, 8080
 set :static, true
@@ -22,10 +25,10 @@ set :views, "views"
 
 before do
   @client = Twitter::REST::Client.new do |config|
-    config.consumer_key        = "YOUR_CONSUMER_KEY"
-    config.consumer_secret     = "YOUR_CONSUMER_SECRET"
-    config.access_token        = "YOUR_ACCESS_TOKEN"
-    config.access_token_secret = "YOUR_ACCESS_SECRET"
+    config.consumer_key        = 
+    config.consumer_secret     = 
+    config.access_token        = 
+    config.access_token_secret = 
   end
 end
 
@@ -34,9 +37,9 @@ get '/' do
 end
 
 post '/search' do
-  user_input = params['user_input']
-  @client.search("user_input -rt", :count => 100, result_type: "popular").take(5).collect do |tweet|
-    "#{tweet.user.screen_name}: #{tweet.text}"
+  user_input = params[user_input] || "pullover"
+  def twitter_feed
+    @client.search("from:motions_cat #{user_input}", result_type: "mixed").take(3).collect
   end
   erb :form
 end
