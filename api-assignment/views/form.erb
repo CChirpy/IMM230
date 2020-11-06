@@ -1,0 +1,9 @@
+<% @client.statuses.each do | tweet | %>
+  <br><%= tweet.text %><br>
+  <a href=<%= tweet.uri %>><%= tweet.uri %></a>
+<% end %>
+
+<form action='/search' method="POST">
+  <input type="text" name="user_input">
+  <input type="submit">
+</form>
