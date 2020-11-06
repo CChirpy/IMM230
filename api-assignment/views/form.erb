@@ -3,7 +3,8 @@
   <input type="submit">
 </form>
 
-<% twitter_feed.each do |tweet| %>
-  <br><%= tweet.text %><br>
-  <a href=<%= tweet.uri %>><%= tweet.uri %></a>
-<% end %>
+<ul>
+  <% @tweets.each do |tweet| %>
+    <li><%= tweet %></li>
+  <% end %>
+</ul>

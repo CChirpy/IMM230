@@ -8,6 +8,8 @@
     - https://github.com/sferik/twitter
     - https://developer.twitter.com/en/docs/labs/recent-search/guides/search-queries
     - https://stackoverflow.com/questions/17118380/pulling-images-from-users-timeline-with-twitter-gem
+    - https://medium.com/craft-academy/twitter-gem-58fdbe4788e0
+    - https://stackoverflow.com/questions/8425366/displaying-tweets-in-my-view/8426388#8426388
 =end
 
 require 'sinatra'
@@ -37,9 +39,14 @@ get '/' do
 end
 
 post '/search' do
-  user_input = params[user_input] || "pullover"
-  def twitter_feed
-    @client.search("from:motions_cat #{user_input}", result_type: "mixed").take(3).collect
+  @tweets = []
+  i = 0
+  user_input = params["user_input"]
+
+  @client.search("##{user_input}", result_type: "mixed").take(3).each do |tweet|
+    @tweets[i] = tweet.text
+    i = i + 1
   end
+
   erb :form
 end
