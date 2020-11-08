@@ -1,4 +1,6 @@
-# IMM230 - Dynamic Web Applications
+# IMM230
+
+### Dynamic Web Applications
 Fall 2020
 
 ### Resources
