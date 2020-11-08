@@ -1,4 +1,5 @@
 # IMM230 - Dynamic Web Applications
+Fall 2020
 
 ### Resources
 - https://docs.aws.amazon.com/console/cloud9/
