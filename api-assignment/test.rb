@@ -1,10 +1,10 @@
 require 'twitter'
 
 client = Twitter::REST::Client.new do |config|
-  config.consumer_key        = "TShYz3tGDaUAQYVLK2ZrBe1xh"
-  config.consumer_secret     = "CpkhPcbAlBIj06seikAFEjYohwpVSHyxdEMPVUe3TDKgk5ndw5"
-  config.access_token        = "3942241996-mPBMqbKwOhw1Z46bQaCntmZ1efyjI3TrW8CKdIK"
-  config.access_token_secret = "CW6rn1RG9QNlxaJFtUuBvXkAbH2u05EbAXFO60RpUOwiI"
+  config.consumer_key        = ""
+  config.consumer_secret     = ""
+  config.access_token        = ""
+  config.access_token_secret = ""
 end
 
 # @client.search("to:justinbieber marry me", result_type: "recent").take(3).collect do |tweet|
