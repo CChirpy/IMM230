@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Character Set, Viewport, Stylesheet, Fonts, Scripts-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="style/filter.js"></script>
+
+    <!--Title, Description, Keywords, Author-->
+    <title>Connie Huang | Portfolio</title>
+    <meta name="description" content="Portfolio website made by Connie Huang">
+    <meta name="keywords" content="portfolio, website">
+    <meta name="author" content="Connie Huang">
+</head>
+
+<body>
+    <header>
+        <!--Main Header Text-->
+        <h1 class="header">Connie Huang</h1>
+
+        <!--Navigation Menu-->
+        <nav class="navContainer">
+            <a href="index.html" class="navItem active">Home</a>
+            <a href="contact.html" class="navItem">Contact</a>
+            <a href="about.html" class="navItem">About</a>
+        </nav>
+    </header>
+
+
+    <main>
+        <!--Filter Buttons-->
+        <div id="filterBtnContainer">
+            <button class="btn" onclick="filterSelect('featured')">Featured</button>
+            <button class="btn" onclick="filterSelect('art')">Art</button>
+            <button class="btn" onclick="filterSelect('design')">Design</button>
+            <button class="btn" onclick="filterSelect('web')">Web</button>
+            <button class="btn" onclick="filterSelect('game')">Game</button>
+            <button class="btn" onclick="filterSelect('everything')">Everything</button>
+        </div>
+
+        <!--Content-->
+        <div class="contentContainer">
+            <div class="contentTag art">
+                <a target="_blank" href="https://via.placeholder.com/150/">
+                    <img src="https://via.placeholder.com/150/">
+                </a>
+                <div class="desc">BMW</div>
+            </div>
+            <div class="contentTag art featured">
+                <a target="_blank" href="https://via.placeholder.com/150/">
+                    <img src="https://via.placeholder.com/150/">
+                </a>
+                <div class="desc">Orange</div>
+            </div>
+            <div class="contentTag art">
+                <a target="_blank" href="https://via.placeholder.com/150/">
+                    <img src="https://via.placeholder.com/150/">
+                </a>
+                <div class="desc">Volvo</div>
+            </div>
+            <div class="contentTag art">
+                <a target="_blank" href="https://via.placeholder.com/150/">
+                    <img src="https://via.placeholder.com/150/">
+                </a>
+                <div class="desc">Red</div>
+            </div>
+            <div class="contentTag art featured">
+                <a target="_blank" href="https://via.placeholder.com/150/">
+                    <img src="https://via.placeholder.com/150/">
+                </a>
+                <div class="desc">Mustang</div>
+            </div>
+            <div class="contentTag design">
+                <a target="_blank" href="https://via.placeholder.com/150/">
+                    <img src="https://via.placeholder.com/150/">
+                </a>
+                <div class="desc">Blue</div>
+            </div>
+            <div class="contentTag design">
+                <a target="_blank" href="https://via.placeholder.com/150/">
+                    <img src="https://via.placeholder.com/150/">
+                </a>
+                <div class="desc">Cat</div>
+            </div>
+            <div class="contentTag design">
+                <a target="_blank" href="https://via.placeholder.com/150/">
+                    <img src="https://via.placeholder.com/150/">
+                </a>
+                <div class="desc">Dog</div>
+            </div>
+            <div class="contentTag web">
+                <a target="_blank" href="https://via.placeholder.com/150/">
+                    <img src="https://via.placeholder.com/150/">
+                </a>
+                <div class="desc">Melon</div>
+            </div>
+            <div class="contentTag web featured">
+                <a target="_blank" href="https://via.placeholder.com/150/">
+                    <img src="https://via.placeholder.com/150/">
+                </a>
+                <div class="desc">Kiwi</div>
+            </div>
+            <div class="contentTag game">
+                <a target="_blank" href="https://via.placeholder.com/150/">
+                    <img src="https://via.placeholder.com/150/">
+                </a>
+                <div class="desc">Banana</div>
+            </div>
+            <div class="contentTag game">
+                <a target="_blank" href="https://via.placeholder.com/150/">
+                    <img src="https://via.placeholder.com/150/">
+                </a>
+                <div class="desc">Lemon</div>
+            </div>
+            <div class="contentTag game">
+                <a target="_blank" href="https://via.placeholder.com/150/">
+                    <img src="https://via.placeholder.com/150/">
+                </a>
+                <div class="desc">Cow</div>
+            </div>
+        </div>
+        
+    </main>
+    
+    <!--Scripts-->
+    <script>
+        filterSelect("featured");
+    </script>
+
+
+</body></html>

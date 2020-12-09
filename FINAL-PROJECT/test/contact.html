@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+    <!--Character Set, Viewport, Stylesheet, Fonts, Scripts-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="style/filter.js"></script>
+
+    <!--Title, Description, Keywords, Author-->
+    <title>Connie Huang | Contact</title>
+    <meta name="description" content="Portfolio website made by Connie Huang">
+    <meta name="keywords" content="portfolio, website">
+    <meta name="author" content="Connie Huang">
+</head>
+    
+<body>
+    <header>
+        <!--Main Header Text-->
+        <h1 class="header">Connie Huang</h1>
+        
+        <!--Navigation Menu-->
+        <nav class="navContainer">
+            <a href="index.html" class="navItem">Home</a>
+            <a href="contact.html" class="navItem active">Contact</a>
+            <a href="about.html" class="navItem">About</a>
+        </nav>
+    </header>
+    
+    <main>
+    <!--Contact Form-->
+    <div class="formContainer">
+        <form action="/contact" method="post">
+            <label for="name">Name</label><br>
+            <input type="text" id="name" name="name" placeholder="Your Name"><br>
+
+            <label for="contact">Contact</label><br>
+            <input type="text" id="contact" name="contact" placeholder="Contact Info"><br>
+
+            <label for="subject">Subject</label><br>
+            <input type="text" id="subject" name="subject" placeholder="Subject Title" required><br>
+
+            <label for="message">Message</label><br>
+            <textarea id="message" name="message" placeholder="Write something..." required></textarea><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    </main>
+    
+</body>
+    
+</html>
