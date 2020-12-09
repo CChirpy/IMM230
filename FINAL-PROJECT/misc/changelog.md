@@ -1,7 +1,7 @@
 # portfolio changelog
 generalized thoughts and changes recorded on a day to day basis
 
-## 2020-12-09 - added database and fun notif msgs
+### 2020-12-09 - added database and fun notif msgs
 - switched back to ruby after doing css
 - added database for storing messages (messages.db)
 - require 'sqlite3'
